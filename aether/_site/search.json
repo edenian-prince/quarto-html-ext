@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "template.html",
+    "href": "template.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "TODO Create an example file that demonstrates the formatting and features of your format."
+  },
+  {
+    "objectID": "template.html#introduction",
+    "href": "template.html#introduction",
+    "title": "Untitled",
+    "section": "",
+    "text": "TODO Create an example file that demonstrates the formatting and features of your format."
+  },
+  {
+    "objectID": "template.html#more-information",
+    "href": "template.html#more-information",
+    "title": "Untitled",
+    "section": "More Information",
+    "text": "More Information\nYou can learn more about controlling the appearance of HTML output here: https://quarto.org/docs/output-formats/html-basics.html"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\n\nNORTHWEST PATHOGEN GENOMICS CENTER OF EXCELLENCE\n\nPolicies and Guidelines\n",
+    "section": "",
+    "text": "NORTHWEST PATHOGEN GENOMICS CENTER OF EXCELLENCE\n\nPolicies and Guidelines\n\nThis is a static website documenting the policies and guidelines for public Github use at the Pacific Northwest Genomic Center of Excellence. Scroll below to see overviews on Github, Azure, and AWS policies.\nGet started\n\n\n\n\n\n\n  \n\n\n\n{{&lt; bi github 4em &gt;}}\nGithub Policies\n\nRepo security rules {{&lt; fa unlock &gt;}}\nLicensing {{&lt; fa file &gt;}}\nTemplates and guides {{&lt; fa book &gt;}}\n\ngh guides\n\n\n{{&lt; bi amazon 4em &gt;}}\nAWS Policies\n\nRepo AWS rules {{&lt; fa unlock &gt;}}\nDocumentation {{&lt; fa file &gt;}}\nUser guides {{&lt; fa book &gt;}}\n\naws guides\n\n\n{{&lt; bi cloud-fog-fill 4em &gt;}}\nAzure Policies\n\nRepo Azure/Databricks rules {{&lt; fa unlock &gt;}}\nDocumentation {{&lt; fa file &gt;}}\nUser guides {{&lt; fa book &gt;}}\n\nazure guides"
+  }
+]
