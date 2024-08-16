@@ -1,16 +1,384 @@
 ---
-title: Untitled
+title: NW-PaGe Format Example
 format:
-  nwpage-html: default
-author: Frank Aragclear
+  nwpage-html:
+    toc: true
+author: Frank Aragona
 date: last-modified
+knitr: true
+execute:
+  eval: false
 ---
 
-## Introduction
+# Introduction
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+This is an example template showcasing the default styles and formats that come with this Quarto template. You can customize and change anything you want, or just use the default
 
-## More Information
+:::{.panel-tabset}
+
+## Installation
+
+For **existing projects** execute this in a terminal:
+
+:::{.medframe}
+
+```{bash filename="terminal"}
+quarto add edenian-prince/quarto-html-ext/nwpage
+```
+
+:::
+
+To **create a project** with the template:
+
+:::{.medframe}
+
+```{bash filename="terminal"}
+quarto use template edenian-prince/quarto-html-ext/nwpage
+```
+
+:::
+
+
+## Usage
+
+This template should be used for htmls. I'm planning on adding a pdf typst template in the near future
+
+
+## Contact
+
+Frank Aragona - faaragona4@gmail.com
+
+:::
+
+
+# Code Block Styles
+
+The styling for the code blocks was inspired by [the mlr3book](https://mlr3book.mlr-org.com/chapters/chapter1/introduction_and_overview.html). They look so clean, and be sure to check out their awesome book on machine learning in R.
+
+There CSS styles for creating different code block sizes:
+
+1. `.smallframe` - for small blocks, usually for small code chunks and terminal commands
+
+:::{.smallframe}
+```{bash filename="terminal"}
+sudo make install
+```
+:::
+
+In markdown:
+
+````markdown
+:::{.smallframe}
+```{bash filename="terminal"}
+sudo make install
+```
+:::
+````
+
+
+
+2. `.medframe` - for medium size chunks
+
+:::{.medframe}
+```{r filename="R script"}
+library(dplyr)
+
+df <- mtcars |>
+  select(mpg,cyl,disp)|>
+  filter(mpg > 30)
+```
+:::
+
+In markdown:
+
+````markdown
+:::{.medframe}
+```{r filename="R script"}
+library(dplyr)
+
+df <- mtcars |>
+  select(mpg,cyl,disp)|>
+  filter(mpg > 30)
+```
+:::
+````
+
+3. `.myframe` is a code block with a box shadow underneath. It makes it appear as thought the code block pops out of the screen
+
+:::{.myframe}
+```{python filename="Python script", python.reticulate=FALSE}
+import os
+import pandas as pd 
+
+for f in os.listdir(received_submission_dir):
+    if f.endswith('received_submissions.csv'):
+        df = pd.read_csv(f'{received_submission_dir}/{f}')
+        received_submission_df_list.append(df)
+
+received_submission_df = pd.concat(received_submission_df_list)
+received_submission_df.reset_index(drop=True, inplace=True)
+
+```
+:::
+
+<br>
+
+In markdown:
+````markdown
+:::{.myframe}
+```{python filename="Python script", python.reticulate=FALSE}
+import os
+import pandas as pd 
+
+for f in os.listdir(received_submission_dir):
+    if f.endswith('received_submissions.csv'):
+        df = pd.read_csv(f'{received_submission_dir}/{f}')
+        received_submission_df_list.append(df)
+
+received_submission_df = pd.concat(received_submission_df_list)
+received_submission_df.reset_index(drop=True, inplace=True)
+
+```
+:::
+````
+
+
+# Code Output Style
+
+There are custom code outputs to make the outputs more readable. This was inspired by the [knitr documentartion on chunk styling](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-styling.html)
+
+I added a background and bold font to the outputs like this:
+
+:::{.medframe}
+```{r filename="R script"}
+#| eval: true
+#| message: false
+#| warning: false
+#| class-output: watch
+library(dplyr)
+
+(
+  df <- mtcars |>
+    select(mpg,cyl,disp)|>
+    filter(mpg > 30)
+)
+
+```
+:::
+
+<br>
+
+The Quarto default is this (which I think is a bit too plain sometimes):
+
+:::{.medframe}
+```{r filename="R script"}
+#| eval: true
+#| message: false
+#| warning: false
+library(dplyr)
+
+(
+  df <- mtcars |>
+    select(mpg,cyl,disp)|>
+    filter(mpg > 30)
+)
+
+```
+:::
+
+<br>
+
+To use the output style, make sure to use `#| class-output: watch` in the yaml header of your code chunk, like this:
+
+:::{.medframe}
+```{r filename="R script"}
+#| eval: true
+#| message: false
+#| warning: false
+#| class-output: watch
+#| echo: fenced
+library(dplyr)
+
+(
+  df <- mtcars |>
+    select(mpg,cyl,disp)|>
+    filter(mpg > 30)
+)
+
+```
+:::
+
+# Callout Blocks
+
+There are custom callout blocks inspired by [this fantastic website](https://tinystats.github.io/teacups-giraffes-and-statistics/02_bellCurve.html) by Hasse Walum and Desiree de Leon.
+
+To make a custom callout block, use the `.note` div like this:
+
+:::{.medframe}
+```markdown
+::: {.note .medframe}
+{{< fa unlock size="3x" >}} **Objectives**
+
+-   Prevent sensitive information leaks to Github
+-   Set up guardrails, `.gitignore`, hooks
+-   Scrub private repos before they go public
+:::
+```
+:::
+
+to get this
+
+::: {.note .medframe}
+{{< fa unlock size="3x" >}} **Objectives**
+
+-   Prevent sensitive information leaks to Github
+-   Set up guardrails, `.gitignore`, hooks
+-   Scrub private repos before they go public
+:::
+
+:::{.callout-note}
+note: I'm using icons in the callout block that need to be installed in your project. if you want to use icons, follow [this guide to install and use](https://github.com/quarto-ext/fontawesome?tab=readme-ov-file#font-awesome-extension-for-quarto)
+:::
+
+
+# Panel Tabsets
+
+The custom panel tabsets were inspired and pull from [this awesome blog](https://blog.tidy-intelligence.com/posts/sakura-visualizations/) by Christoph Scheuch
+
+To make a panel tabset, wrap a group of headers in a fenced div called `:::{.panel-tabset} like:
+
+:::{.medframe}
+````markdown
+
+:::{.panel-tabset}
+
+## header1
+
+stuff here
+
+## header2
+
+other stuff here
+
+## header3
+
+even stuff here
+
+:::
+
+````
+:::
+
+and it will output to be this:
+
+:::{.panel-tabset}
+
+## header1
+
+stuff here
+
+## header2
+
+other stuff here
+
+## header3
+
+even stuff here
+
+:::
+
+
+# Buttons {#sec-buttons}
+
+I made some simple CSS buttons that you can use and link to certain pages.
+
+They look like this:
+
+<a href="#sec-buttons" class="button">here is a button!</a>
+
+and you can create them in your quarto doc like this:
+
+:::{.medframe}
+````markdown
+<a class="button">here is a button!</a>
+````
+:::
+
+
+
+## Link to section
+
+You can link a button to a different section, so whenever the user clicks on the button it will take them to the section. It works like this:
+
+1. Label your section of interest by wrapping it in a fenced div, or if it's a header you can label it;
+
+:::{.medframe}
+````markdown
+:::{#interesting-section}
+### my section!
+
+here's a totally awesome section that is linked to the button
+:::
+
+````
+:::
+
+:::{.medframe}
+````markdown
+# a header that has a section link {#sec-header-link}
+````
+:::
+
+
+<br>
+
+2. Reference the section with your button `href`
+
+:::{.medframe}
+````markdown
+<a href="#interesting-section" class="button">click me!</a>
+````
+:::
+
+
+<a href="#interesting-section" class="button">click me!</a>
+
+<br>
+
+:::{#interesting-section}
+### my section!
+
+here's a totally awesome section that is linked to the button
+:::
+
+
+## Link to external page
+
+You can have your button linked to a separate page in your website by making the `href` point to a qmd (or whatever) file.
+
+:::{.medframe}
+````markdown
+<a href="folder/index.qmd" class="button">click me!</a>
+````
+:::
+
+
+
+<br>
+<br>
+<br>
+
+
+# Example Website 
+
+<br>
+<br>
+
+```{=html}
+<iframe width="1000" height="600" src="https://nw-page.github.io/standards/" title="standards site"></iframe>
+```
+
+
+# More Information
 
 You can learn more about controlling the appearance of HTML output here: <https://quarto.org/docs/output-formats/html-basics.html>
-
