@@ -1,11 +1,8 @@
-title: Aether
-author: Frank Aragona
+title: Nwpage
+author: Frank Aragclear
 version: 1.0.0
 quarto-required: ">=1.5.0"
 contributes:
-  project:
-    project:
-      type: website
   formats:
     html:
       theme: [cosmo, custom.scss]
@@ -17,4 +14,5 @@ contributes:
       code-overflow: wrap
       backgroundcolor: "#fdfdfd"
 
+      
 
