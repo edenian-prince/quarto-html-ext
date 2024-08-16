@@ -18,6 +18,8 @@ This is an example template showcasing the default styles and formats that come 
 
 ## Installation
 
+I recommend installing this as an extension for an existing quarto project (but you can also use it as a base template)
+
 For **existing projects** execute this in a terminal:
 
 :::{.medframe}
@@ -28,6 +30,75 @@ quarto add edenian-prince/quarto-html-ext/nwpage
 
 :::
 
+For websites, in your `_quarto.yml` file change the format to be `nwpage-html` instead of just `html`.
+
+Change this:
+
+:::{.medframe}
+```{yaml}
+project:
+  type: website
+
+website:
+  title: "codebook"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+:::
+
+To this:
+
+:::{.medframe}
+```{yaml}
+project:
+  type: website
+
+website:
+  title: "codebook"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  nwpage-html:
+    toc: true
+```
+:::
+
+
+Similarly, if you just have an html quarto doc that is not part of a website, you can call the formats into your document in your `.qmd` file's front matter like this with `nwpage-html:`
+
+```{qmd}
+---
+title: my qmd doc
+author: you
+format:
+  nwpage-html: default
+---
+
+# header
+
+the rest of the document...
+```
+
+
+
+
+<br>
+
+
+
 To **create a project** with the template:
 
 :::{.medframe}
@@ -37,6 +108,7 @@ quarto use template edenian-prince/quarto-html-ext/nwpage
 ```
 
 :::
+
 
 
 ## Usage
