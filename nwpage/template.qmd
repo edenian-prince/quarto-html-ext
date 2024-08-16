@@ -35,7 +35,7 @@ For websites, in your `_quarto.yml` file change the format to be `nwpage-html` i
 Change this:
 
 :::{.medframe}
-```{yaml}
+```{yaml filename="_quarto.yml"}
 project:
   type: website
 
@@ -58,7 +58,7 @@ format:
 To this:
 
 :::{.medframe}
-```{yaml}
+```{yaml filename="_quarto.yml"}
 project:
   type: website
 
@@ -79,7 +79,7 @@ format:
 
 Similarly, if you just have an html quarto doc that is not part of a website, you can call the formats into your document in your `.qmd` file's front matter like this with `nwpage-html:`
 
-```{qmd}
+```{markdown filename="index.qmd"}
 ---
 title: my qmd doc
 author: you
@@ -118,7 +118,7 @@ This template should be used for htmls. I'm planning on adding a pdf typst templ
 
 ## Contact
 
-Frank Aragona - faaragona4@gmail.com
+Frank Aragona - faaragona4@gmail.com or frank.aragona@doh.wa.gov
 
 :::
 
